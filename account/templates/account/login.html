@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login page</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            {% comment %} background-color: #f1f1f1; {% endcomment %}
+            background-image: linear-gradient(rgba(27, 25, 26, 0.8), rgba(13, 38, 65, 0.5)), url('../static/bookcollection.jpg');
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .form-container {
+            background-color: #fff;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 20px 20px 20px rgba(7, 45, 96, 0.8);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        
+        .form-field {
+            margin-bottom: 20px;
+        }
+        
+        label {
+            font-weight: bold;
+        }
+        
+        input[type="text"],
+        input[type="password"] {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            width: 100%;
+            box-sizing: border-box;
+            transition: border-color 0.3s ease;
+        }
+        
+        input[type="text"]:focus,
+        input[type="password"]:focus {
+            border-color: #2196F3;
+        }
+        
+        button[type="submit"] {
+            padding: 10px 20px;
+            background-color: #2196F3;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        
+        button[type="submit"]:hover {
+            background-color: green;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <h1 style="color: cadetblue;">Login Form</h1>
+        <form method="POST" action="{% url 'login' %}">
+            {% csrf_token %}
+            <div class="form-field">
+                <label for="{{ form.username.id_for_label }}">Username:</label>
+                {{ form.username }}
+            </div>
+            <div class="form-field">
+                <label for="{{ form.password.id_for_label }}">Password:</label>
+                {{ form.password }}
+            </div>
+            <button type="submit">Login</button>
+            {% if msg %}
+               {% if not banned_msg %}  
+                   <p>{{ msg }}</p>  
+               {% endif %}
+               {% if banned_msg %}
+                   <p>{{ banned_msg }}</p>
+               {% endif %}
+            {% endif %}
+        </form>
+        <p>Don't have an account? <b><a href="{% url 'register' %}" style="text-decoration:none; color:#2196F3;">Register here</a></b></p>
+    </div>
+</body>
+</html>

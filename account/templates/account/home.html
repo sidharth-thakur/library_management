@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <title>Library Management System</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+     <link rel="stylesheet" href="#">
+     <link rel="preconnect" href="https://fonts.googleapis.com">
+     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+     <link href="https://fonts.googleapis.com/css2?family=Cabin+Sketch:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: "Poppins", sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+            box-shadow:1px 2px 5px  rgba(3, 19, 37,0.5);
+            background:rgba(3, 0, 0, 0.8);
+        }
+        
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+        
+        nav ul li {
+            display: inline;
+            margin-right: 10px;
+        }
+        
+        main {
+            padding: 0px;
+            
+            
+        }
+        .openingsection{
+          background-image: linear-gradient(rgba(27, 25, 26, 0.8), rgba(13, 38, 65, 0.5)), url('../static/bookcollection.jpg');
+          background-size: cover;
+          background-position: center;
+          padding-top:80px;
+          height:81vh;
+          margin-bottom:40px;
+          padding-left:50px;
+        }
+        
+        h1 {
+            color:white;
+            font-family: "Cabin Sketch", sans-serif;
+            padding-left:30px;
+            
+            font-size:60px;
+        }
+        h2{
+          color: #333;
+          font-family: "Cabin Sketch", sans-serif;
+          text-align:center;
+        }
+        
+        .book {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        
+        .book img {
+            width: 100px;
+            height: 150px;
+            margin-right: 10px;
+        }
+
+        .mainn{ 
+            width:80%;
+            margin:auto;
+            display: flex;
+            overflow-x: scroll;
+            scroll-snap-type: x mandatory;
+            
+        }
+        .mainn::-webkit-scrollbar {
+          display: none;
+}
+
+        .cardd-link{
+            text-decoration: None;
+            border: #333 solid 1px;
+            padding: 2%;
+            border-radius: 5px;
+        }
+
+        .links{
+            display: flex;
+            justify-content: space-around;
+        }
+
+        .list-groupp{
+            list-style: none;
+            padding: initial;
+            display: flex;
+            flex-direction:column;
+            justify-content: space-between;
+            row-gap: 2%;
+            padding: 2%;
+        }
+        .list-groupp-item{
+            padding-top: 2%;
+            padding-bottom: 2%;
+            border-radius: 10px;
+            /* background-color: aquamarine; */
+         }
+         .cardd-body img{
+          width:100%;
+          margin-bottom:10px;
+         }
+        .cardd-title{
+            text-align: center;
+            font-size: 32px;
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            padding: 0;
+            margin: 0;
+        }
+
+        .cardd-text{
+            padding-left: 2%;
+            font-size: 18px;
+            font-family: 'Times New Roman', Times, serif;
+        }
+
+        .cardd{
+            margin: 1%;
+            padding: 1%;
+            box-shadow: 0 0 10px rgb(93, 122, 133);
+            border-radius: 5px;
+            justify-content: center;
+            transition: margin 0.3s ease;
+        }
+
+        .cardd:hover {
+          margin-top: 0.2px;
+        }
+
+        .para {
+            padding-left:40px;
+            display: flex;
+            justify-content: space-around;
+            column-gap: 3%;
+            height:70vh;
+            width:100%;
+            
+            
+
+            @media (max-width : 700px) {
+                flex-direction: column;
+                row-gap: 3%;
+            }
+        }
+        .text{
+            margin-top:90px;
+            width:60%;
+            font-size: 60px;
+            font-family: 'Times New Roman', Times, serif;
+            padding-left:30px;
+            color:white;
+        }
+        /* .booksimage img{
+            @media (max-width : 700px) {
+                width: 400;
+                height: 400;
+            }
+        } */
+        .booksimage{
+          width:100%;
+          height:90vh;
+          opacity:0.9;
+          
+        }
+        .booksimage img{
+          width:100%;
+          height:70%;
+        }
+        .contact{
+            margin : 3%;
+            background-image: linear-gradient(rgba(27, 25, 26, 0.9), rgba(13, 38, 65, 0.9)), url('../static/bookcollection.jpg');
+            background-size: cover;
+            background-position: center;
+            /* border: #333 solid 1px; */
+            padding: 5%;
+            border-radius: 8px;
+            display: flex;
+            color:white;
+            
+            box-shadow: 0 0 10px rgb(134, 206, 235);
+            @media (max-width : 700px) {
+                flex-direction: column-reverse;
+                row-gap: 3%;
+            }
+        }
+
+        .buttons{
+          /* background-color:rgb(134, 206, 235); */
+          width: 150px;
+          box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);
+          padding: 1%;
+          
+        }
+
+        .group{
+          display: flex;
+          justify-content: center;
+          flex-wrap: wrap;
+          gap : 10px;
+          margin-top : 4%;
+          margin-bottom : 4%;
+        }   
+        .reading{
+          color:lightblue;
+
+        } 
+    </style>
+    
+</head>
+<body>
+    <header>
+  <nav class="navbar navbar-expand-lg navbar-dark">
+  <a class="navbar-brand" href="#"><strong><i class="fa-solid fa-book"></i>Library</strong></a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#books">Books</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#contact">Contact Us</a>
+      </li>
+      {%if user.is_super_admin or user.is_admin%}
+
+      <li class="nav-item">
+        <a class="nav-link" href="{%url 'books' %}">Admin Page</a>
+      </li>
+      {%endif%}
+      {% if user.is_authenticated %}
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                {{ user.username }}
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a style="color:black" class="nav-link" href="{% url 'profile' %}">My Account</a>
+                <a class="dropdown-item" href="{% url 'logout' %}">Logout</a>
+            </div>
+        </li>
+        {% else %}
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Sign Up
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="/login">Login</a>
+                <a class="dropdown-item" href="/register">Register</a>
+            </div>
+        </li>
+        {% endif %}
+    
+    </ul>
+
+    <form class="form-inline my-2 my-lg-0"  method = "POST" action = "{% url 'search-author' %}">
+      
+      {% csrf_token %}
+
+      <input class="form-control mr-sm-2" type="search" placeholder="Search by Author Name" aria-label="Search" name = "search_author">
+      <button class="btn btn-primary my-2 my-sm-0" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+    </form>
+
+    &nbsp;
+    <form class="form-inline my-2 my-lg-0"  method = "POST" action = "{% url 'search-books' %}">
+      {% csrf_token %}
+      <input class="form-control mr-sm-2" type="search" placeholder="Search Book" aria-label="Search" name = "search">
+      <button class="btn btn-primary my-2 my-sm-0 srchbtn" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+    </form>
+    
+  </div>
+</nav>
+       
+    </header>
+    <main>
+      <section class="openingsection">
+      
+        {% if now.hour >= 6 and now.hour < 12 %}
+        <h1>Good morning, {% if user %}{{ user|title }}{% else %}Guest{% endif %}!</h1>
+        {% elif now.hour >= 12 and now.hour < 18 %}
+        <h1>Good afternoon, {% if user %}{{ user|title }}{% else %}Guest{% endif %}!</h1>
+        {% else %}
+        <h1>Good evening, {% if user %}{{ user|title }}{% else %}Guest{% endif %}!</h1>
+        {% endif %}
+    
+        
+
+        <div class="para">
+            
+
+           <div class = 'text'> Find the book you're looking for easier to read.
+
+            <b class="reading">Happy reading!</b>
+            
+        </div>
+            <div class = 'booksimage'>
+                {%load static %}
+                <img  src="{% static 'books_pre.png' %}" width="400" height="250" />
+            </div>
+            
+        </div>
+      </section>
+         <h2 id = "books">Featured Books</h2>
+
+        <div class="container group">
+          <a href="{% url 'filtered_books' 'all' %}" class="btn btn-outline-secondary buttons">All</a>
+          <a href="{% url 'filtered_books' 'Fictional' %}" class="btn btn-outline-secondary buttons">Fictional</a>
+          <a href="{% url 'filtered_books' 'Educational' %}" class="btn btn-outline-secondary buttons">Educational</a>
+          <a href="{% url 'filtered_books' 'Drama' %}" class="btn btn-outline-secondary buttons">Drama</a>
+          <a href="{% url 'filtered_books' 'Non-Fictional' %}" class="btn btn-outline-secondary buttons">Non-Fictional</a>
+          <a href="{% url 'filtered_books' 'Romance' %}" class="btn btn-outline-secondary buttons">Romance</a>
+          <a href="{% url 'status_filter' %}" class="btn btn-outline-secondary buttons">Only Available</a>
+        </div> 
+          
+         
+
+
+        <div class = 'mainn'>       
+          {%if not books%}
+          <h2 style="text-align:center">No Books Yet</h2>
+          {%endif%}
+        
+          {% for book in books %}
+          <!-- {{book.book_cover}} -->
+          
+          <div class="cardd" style="width: 17rem;">
+           
+            <div class="cardd-body">
+              <img src="/media/{{book.book_cover}}" width="250" height="200" />
+              <h5 class="cardd-title">{{ book.title }}</h5>
+            </div>
+            <ul class="list-groupp">
+              <li class="list-groupp-item">Author Name: {{book.author}}</li>
+              <li class="list-groupp-item">Genre : {{ book.genre }}</li>
+              {% if book.status|default:""|upper == "AVAILABLE" %}
+              <li style="color: green;" class="list-groupp-item">{{ book.status|default:""|upper }}</li>
+              {% elif book.status|default:""|upper == "BORROWED" %}
+                  <li style="color: red;" class="list-groupp-item">{{ book.status|default:""|upper }}</li>
+              {% else %}
+                  <li class="list-groupp-item">{{ book.status|default:""|upper }}</li>
+              {% endif %}
+
+            </ul>
+            <div class="cardd-body links">
+              {%if book.status == "available"%}
+              <a href="{% url 'borrowingmanagement:borrow_book' book_id=book.id %}" class="cardd-link">Borrow Book</a>
+              {%endif%}
+               {% comment %} <a href="{% url 'reviewsmanagement:book_detail' book.title %}" class="cardd-link">Review Book</a> {% endcomment %}
+              
+                
+            </div>
+          </div>
+          
+
+          {%endfor%}
+        
+      </div>
+
+    <div class="contact">
+        
+        {% csrf_token %}
+    <form id = "contact" class="container" method = 'POST'>
+      {% csrf_token %}
+        <h1>Contact Us</h1>
+        <div class="form-group">
+          <label for="email">Email address</label>
+          <input type="email" class="form-control" id="email" name = "reviewer_email" aria-describedby="emailHelp" placeholder="Enter email">
+
+          <label for="comment">Comment</label>
+          <TextArea class="form-control" name = "comment" placeholder="Enter Message" ></TextArea> 
+          
+        </div>
+        <button type="submit" class="btn btn-primary" onclick="popup()">Send</button>
+      </form>
+      <script>
+        function popup() {
+          alert(" Dear applicant your Response has been Recorded!");
+        }
+        </script>
+    {%load static %}
+    <img src = "{% static 'comments.jpg' %}" width = '400' height = '300' />
+
+    </div>
+    </main>
+<script src="https://kit.fontawesome.com/4dc0af90fd.js" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>My Website</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+    
+    .header {
+      width:80%;
+      margin:auto;
+      padding: 50px;
+      display:flex;
+      justify-content:space-between;
+    }
+    .logo a{
+      font-size:30px;
+      text-decoration:none;
+      color:black;
+      
+    }
+    .fa-book{
+      margin-right:10px;
+    }
+    .loginBtn{
+      text-decoration:none;
+      font-size:20px;
+      color:black;
+      margin-right:60px;
+    }
+    .loginBtn:hover{
+      color:red;
+    }
+    .registerBtn{
+      text-decoration:none;
+      font-size:20px;
+      color:black;
+      border: 3px solid red;
+      border-radius:20px;
+      padding:10px 20px;
+      margin-top: 5px;
+      margin-bottom: 5px;
+    }
+    .registerBtn:hover{
+      background:red;
+      color:white;
+    }
+    .info{
+
+      margin:auto;
+      padding-left:40px;
+      display: flex;
+      justify-content: space-around;
+      column-gap: 3%;
+      width:80%;
+      
+      
+
+      @media (max-width : 700px) {
+          flex-direction: column;
+          row-gap: 3%;
+      }
+    }
+    .booksimage{
+      width:100%;
+      
+    }
+    .text{
+      margin-top:90px;
+      width:75%;
+      font-size: 55px;
+      font-family: 'Times New Roman', Times, serif;
+      padding-left:30px;
+      color:black;
+    }
+    .text span{
+      margin-top:50px;
+      float:right;
+      font-size:30px;
+    }
+    .booksimage img{
+      width:100%;
+      height:70%;
+    }
+    .submission{
+      display: flex;
+      width:80%;
+      margin:auto;
+      margin-top:80px;
+    }
+    .submission .loginBtn{
+      border: 3px solid red;
+      border-radius:20px;
+      padding:20px 50px;
+      background:red;
+      color:white;
+      
+    }
+    .submission .loginBtn:hover{
+      background:white;
+      color:black;
+    }
+    .submission .registerBtn{
+      border: 3px solid red;
+      border-radius:20px;
+      padding:20px 50px;
+      
+    }
+    .footer{
+      text-align:center;
+    }
+    .discover_started{
+      border: 3px solid rgb(24, 17, 17);
+      border-radius:20px;
+      padding:20px 50px;
+      margin: 5px 5px 5px 5px;
+      font-size: 20px;
+      color: black;
+
+    }
+    .discover_started:hover{
+      background:rgb(71, 67, 67);
+      color:rgb(255, 255, 255);
+    }
+
+  </style>
+</head>
+<body>
+  <div class="header">
+    <div class="logo"><a  href="#"><strong><i class="fa-solid fa-book"></i>Student Library</strong></a></div>
+    <div>
+      <a class="loginBtn" href="{% url 'login' %}">Log In</a>
+      <a class="registerBtn" href="{% url 'register' %}">Register</a>
+      
+    </div>
+  </div>
+  <div class="info">
+            
+
+    <div class = 'text'> "Libraries are the cornerstone of democracy, where information is free and equally accessible to all."
+      <span>Anjali Vishwari</span>
+     <b class="reading"></b>
+     <div class="submission">
+      <a class="discover_started" href="{% url 'register' %}">Get..Started</a>
+      <a class="discover_started" href="{% url 'login' %}"> Discover.....</a>
+      
+    </div>
+     
+ </div>
+    <div class = 'booksimage'>
+      {%load static %}
+      <img  src="{% static 'book_landing.png' %}" width="400" height="250" />
+  </div>
+  </div>
+
+  <div class="footer">
+    <p>More the <b>23,0000 books </b> waiting to be discovered</p>
+  </div>
+    
+    
+  </div>
+
+
+  <script src="https://kit.fontawesome.com/4dc0af90fd.js" crossorigin="anonymous"></script>
+</body>
+</html>
