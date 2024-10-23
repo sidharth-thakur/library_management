@@ -52,7 +52,7 @@
       padding-left:40px;
       display: flex;
       justify-content: space-around;
-      column-gap: 3%;
+      column-gap: 10%;
       width:80%;
       
       
@@ -63,12 +63,12 @@
       }
     }
     .booksimage{
-      width:100%;
+      width:85%;
       
     }
     .text{
-      margin-top:90px;
-      width:75%;
+      margin-top:20px;
+      width:100%;
       font-size: 55px;
       font-family: 'Times New Roman', Times, serif;
       padding-left:30px;
@@ -85,9 +85,10 @@
     }
     .submission{
       display: flex;
-      width:80%;
+      width:100%;
       margin:auto;
-      margin-top:80px;
+      margin-top:74px;
+      gap: 20px;
     }
     .submission .loginBtn{
       border: 3px solid red;
@@ -109,6 +110,7 @@
     }
     .footer{
       text-align:center;
+      margin-top: 60px;
     }
     .discover_started{
       border: 3px solid rgb(24, 17, 17);
@@ -123,15 +125,165 @@
       background:rgb(71, 67, 67);
       color:rgb(255, 255, 255);
     }
+    .button {
+  display: inline-block;
+  padding: 0.8rem 1.8rem;
+  border-radius: 10rem;
+  color: #fff;
+  text-transform: uppercase;
+  font-size: 1rem;
+  letter-spacing: 0.15rem;
+  transition: all 0.3s;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+.button:after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #ff0000;
+  border-radius: 10rem;
+  z-index: -2;
+}
+.button:before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0%;
+  height: 100%;
+  background-color: #fff;
+  transition: all 0.3s;
+  border-radius: 10rem;
+  z-index: -1;
+}
+.button:hover {
+  color: #000;
+  border: 1px solid #000;
+}
+.button:hover:before {
+  width: 100%;
+}
+  .button {
+  display: inline-block;
+  padding: 0.8rem 1.8rem;
+  border-radius: 10rem;
+  color: #fff;
+  text-transform: uppercase;
+  font-size: 1rem;
+  letter-spacing: 0.15rem;
+  transition: all 0.3s;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+.button:after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #ff0000;
+  border-radius: 10rem;
+  z-index: -2;
+}
+.button:before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0%;
+  height: 100%;
+  background-color: #fff;
+  transition: all 0.3s;
+  border-radius: 10rem;
+  z-index: -1;
+}
+.button:hover {
+  color: #000;
+  border: 1px solid #000;
+}
+.button:hover:before {
+  width: 100%;
+}
 
+
+.button1 {
+  display: inline-block;
+  padding: 0.8rem 1.8rem;
+  border-radius: 10rem;
+  color: #000;
+  text-transform: uppercase;
+  font-size: 1rem;
+  letter-spacing: 0.15rem;
+  transition: all 0.3s;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+.button1:after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
+  border-radius: 10rem;
+  z-index: -2;
+}
+.button1:before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0%;
+  height: 100%;
+  background-color: grey;
+  transition: all 0.3s;
+  border-radius: 10rem;
+  z-index: -1;
+}
+.button1:hover {
+  color: #000;
+}
+.button1:hover:before {
+  width: 100%;
+}
+
+/* optional reset for presentation */
+* {
+  font-family: Arial;
+  text-decoration: none;
+
+}
+
+span {
+  display: block;
+  margin-top: 2rem;
+  font-size: 0.7rem;
+  color: #777;
+}
+span a {
+  font-size: 0.7rem;
+  color: #999;
+  text-decoration: underline;
+}
   </style>
 </head>
 <body>
+
+
   <div class="header">
     <div class="logo"><a  href="#"><strong><i class="fa-solid fa-book"></i>Student Library</strong></a></div>
     <div>
-      <a class="loginBtn" href="{% url 'login' %}">Log In</a>
-      <a class="registerBtn" href="{% url 'register' %}">Register</a>
+      <a class="button1" href="{% url 'login' %}">Log In</a>
+      <a class="button" href="{% url 'register' %}">Register</a>
       
     </div>
   </div>
@@ -139,11 +291,11 @@
             
 
     <div class = 'text'> "Libraries are the cornerstone of democracy, where information is free and equally accessible to all."
-      <span>Anjali Vishwari</span>
+      <span></span>
      <b class="reading"></b>
      <div class="submission">
-      <a class="discover_started" href="{% url 'register' %}">Get..Started</a>
-      <a class="discover_started" href="{% url 'login' %}"> Discover.....</a>
+      <a class="button1" href="{% url 'register' %}">Get..Started</a>
+      <a class="button" href="{% url 'login' %}"> Discover.....</a>
       
     </div>
      
@@ -160,7 +312,6 @@
     
     
   </div>
-
 
   <script src="https://kit.fontawesome.com/4dc0af90fd.js" crossorigin="anonymous"></script>
 </body>
